@@ -6,7 +6,7 @@ import Lifes from "./components/Lifes/Lifes";
 function App() {
   const [pressed,setPressed]=useState([]);
   const [correctLetters,setCorrectLetters]=useState([]);
-  const [lifes,setLifes]=useState(5);
+  const [lifes,setLifes]=useState(6);
   const [word,setWord]=useState("");
   const keysRegex=/^[A-z]$/;
   const pressHandler=(e)=>{
@@ -59,10 +59,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Lifes:{<Lifes lifes={lifes} />}</h1>
-       <Word wordToRender={word} guessLetters={correctLetters} />
-       {/* {console.log(pressed,correctLetters)} */}
-       <p>Used letters:{pressed.join(",")}</p>
+        <Lifes lifes={lifes} />
+        <Word wordToRender={word} guessLetters={correctLetters} />
+        {/* {console.log(pressed,correctLetters)} */}
+        <p>Used letters:{pressed.join(",")}</p>
       </header>
     </div>
   );
