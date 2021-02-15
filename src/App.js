@@ -41,18 +41,15 @@ function App() {
   })
   useEffect(()=>{
     if(lifes==0){
-      alert("Izgubio si!");
-      window.onkeypress=()=>false;
+      window.confirm(`You lost.\nSecret word was:${word}.\nPress OK if you want to play again.`) ? window.location.reload() : window.onkeypress=()=>false;
     }
   },[lifes])
   useEffect(()=>{
     if(correctLetters.length){
       const wordArr=[...new Set(word.split(""))].sort().join("");
       const correctLettersArr=correctLetters.sort().join("");
-      console.log(wordArr,correctLettersArr);
       if(wordArr==correctLettersArr){
-        alert("Pobedio si!");
-        window.onkeypress=()=>false;
+        window.confirm(`You won!Press OK if you want to play again.`) ? window.location.reload() : window.onkeypress=()=>false;
       }
     }
   },[correctLetters])
